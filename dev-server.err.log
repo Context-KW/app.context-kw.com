@@ -1,0 +1,361 @@
+ ⨯ Error: Cannot find module './24.js'
+Require stack:
+- M:\context-portal\.next\server\webpack-runtime.js
+- M:\context-portal\.next\server\app\services\page.js
+- M:\context-portal\node_modules\next\dist\server\require.js
+- M:\context-portal\node_modules\next\dist\server\load-components.js
+- M:\context-portal\node_modules\next\dist\build\utils.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-middleware.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-server.js
+- M:\context-portal\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1603:15)
+    at M:\context-portal\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1145:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1169:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1196:12)
+    at Module._load (node:internal/modules/cjs/loader:1370:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at __webpack_require__.f.require (M:\context-portal\.next\server\webpack-runtime.js:198:28)
+    at M:\context-portal\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (M:\context-portal\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (M:\context-portal\.next\server\webpack-runtime.js:162:22)
+    at M:\context-portal\.next\server\app\services\page.js:24:96681
+    at Object.<anonymous> (M:\context-portal\.next\server\app\services\page.js:24:96725)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at requirePage (M:\context-portal\node_modules\next\dist\server\require.js:109:84)
+    at M:\context-portal\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (M:\context-portal\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (M:\context-portal\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (M:\context-portal\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (M:\context-portal\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:818:17)
+    at async M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (M:\context-portal\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (M:\context-portal\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'M:\\context-portal\\.next\\server\\webpack-runtime.js',
+    'M:\\context-portal\\.next\\server\\app\\services\\page.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\require.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\load-components.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\build\\utils.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/services'
+}
+ ⨯ Error: Cannot find module './24.js'
+Require stack:
+- M:\context-portal\.next\server\webpack-runtime.js
+- M:\context-portal\.next\server\pages\_document.js
+- M:\context-portal\node_modules\next\dist\server\require.js
+- M:\context-portal\node_modules\next\dist\server\load-components.js
+- M:\context-portal\node_modules\next\dist\build\utils.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-middleware.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-server.js
+- M:\context-portal\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1603:15)
+    at M:\context-portal\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1145:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1169:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1196:12)
+    at Module._load (node:internal/modules/cjs/loader:1370:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at __webpack_require__.f.require (M:\context-portal\.next\server\webpack-runtime.js:198:28)
+    at M:\context-portal\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (M:\context-portal\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (M:\context-portal\.next\server\webpack-runtime.js:162:22)
+    at M:\context-portal\.next\server\app\services\page.js:24:96681
+    at Object.<anonymous> (M:\context-portal\.next\server\app\services\page.js:24:96725)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at requirePage (M:\context-portal\node_modules\next\dist\server\require.js:109:84)
+    at M:\context-portal\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (M:\context-portal\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (M:\context-portal\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (M:\context-portal\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (M:\context-portal\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:818:17)
+    at async M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (M:\context-portal\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (M:\context-portal\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'M:\\context-portal\\.next\\server\\webpack-runtime.js',
+    'M:\\context-portal\\.next\\server\\pages\\_document.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\require.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\load-components.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\build\\utils.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/services'
+}
+ ⨯ Error: Cannot find module './24.js'
+Require stack:
+- M:\context-portal\.next\server\webpack-runtime.js
+- M:\context-portal\.next\server\pages\_document.js
+- M:\context-portal\node_modules\next\dist\server\require.js
+- M:\context-portal\node_modules\next\dist\server\load-components.js
+- M:\context-portal\node_modules\next\dist\build\utils.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-middleware.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-server.js
+- M:\context-portal\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1603:15)
+    at M:\context-portal\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1145:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1169:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1196:12)
+    at Module._load (node:internal/modules/cjs/loader:1370:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at __webpack_require__.f.require (M:\context-portal\.next\server\webpack-runtime.js:198:28)
+    at M:\context-portal\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (M:\context-portal\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (M:\context-portal\.next\server\webpack-runtime.js:162:22)
+    at M:\context-portal\.next\server\app\services\page.js:24:96681
+    at Object.<anonymous> (M:\context-portal\.next\server\app\services\page.js:24:96725)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at requirePage (M:\context-portal\node_modules\next\dist\server\require.js:109:84)
+    at M:\context-portal\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (M:\context-portal\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (M:\context-portal\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (M:\context-portal\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (M:\context-portal\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:818:17)
+    at async M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (M:\context-portal\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (M:\context-portal\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'M:\\context-portal\\.next\\server\\webpack-runtime.js',
+    'M:\\context-portal\\.next\\server\\pages\\_document.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\require.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\load-components.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\build\\utils.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/services'
+}
+ ⨯ Error: Cannot find module './24.js'
+Require stack:
+- M:\context-portal\.next\server\webpack-runtime.js
+- M:\context-portal\.next\server\pages\_document.js
+- M:\context-portal\node_modules\next\dist\server\require.js
+- M:\context-portal\node_modules\next\dist\server\load-components.js
+- M:\context-portal\node_modules\next\dist\build\utils.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-middleware.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-server.js
+- M:\context-portal\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1603:15)
+    at M:\context-portal\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1145:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1169:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1196:12)
+    at Module._load (node:internal/modules/cjs/loader:1370:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at __webpack_require__.f.require (M:\context-portal\.next\server\webpack-runtime.js:198:28)
+    at M:\context-portal\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (M:\context-portal\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (M:\context-portal\.next\server\webpack-runtime.js:162:22)
+    at M:\context-portal\.next\server\app\services\page.js:24:96681
+    at Object.<anonymous> (M:\context-portal\.next\server\app\services\page.js:24:96725)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at requirePage (M:\context-portal\node_modules\next\dist\server\require.js:109:84)
+    at M:\context-portal\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (M:\context-portal\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (M:\context-portal\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (M:\context-portal\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (M:\context-portal\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:818:17)
+    at async M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (M:\context-portal\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (M:\context-portal\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'M:\\context-portal\\.next\\server\\webpack-runtime.js',
+    'M:\\context-portal\\.next\\server\\pages\\_document.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\require.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\load-components.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\build\\utils.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/services'
+}
+ ⨯ Error: Cannot find module './24.js'
+Require stack:
+- M:\context-portal\.next\server\webpack-runtime.js
+- M:\context-portal\.next\server\app\services\page.js
+- M:\context-portal\node_modules\next\dist\server\require.js
+- M:\context-portal\node_modules\next\dist\server\load-components.js
+- M:\context-portal\node_modules\next\dist\build\utils.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-middleware.js
+- M:\context-portal\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- M:\context-portal\node_modules\next\dist\server\lib\router-server.js
+- M:\context-portal\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1603:15)
+    at M:\context-portal\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1145:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1169:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1196:12)
+    at Module._load (node:internal/modules/cjs/loader:1370:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at __webpack_require__.f.require (M:\context-portal\.next\server\webpack-runtime.js:198:28)
+    at M:\context-portal\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (M:\context-portal\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (M:\context-portal\.next\server\webpack-runtime.js:162:22)
+    at M:\context-portal\.next\server\app\services\page.js:24:96681
+    at Object.<anonymous> (M:\context-portal\.next\server\app\services\page.js:24:96725)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1713:12)
+    at mod.require (M:\context-portal\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:318:16)
+    at requirePage (M:\context-portal\node_modules\next\dist\server\require.js:109:84)
+    at M:\context-portal\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (M:\context-portal\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (M:\context-portal\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (M:\context-portal\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (M:\context-portal\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (M:\context-portal\node_modules\next\dist\server\base-server.js:818:17)
+    at async M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (M:\context-portal\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (M:\context-portal\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (M:\context-portal\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (M:\context-portal\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'M:\\context-portal\\.next\\server\\webpack-runtime.js',
+    'M:\\context-portal\\.next\\server\\app\\services\\page.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\require.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\load-components.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\build\\utils.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'M:\\context-portal\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/services'
+}
+ ⨯ ./app/calculator/page.tsx:4:36
+Module not found: Can't resolve '@/utils/supabase/client'
+[0m [90m 2 |[39m   [36mtry[39m {[0m
+[0m [90m 3 |[39m     [90m// Dynamic lazy-load optimization to preserve clean <110 kB JavaScript bundle boundaries[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m     [36mconst[39m { createClient } [33m=[39m [36mawait[39m [36mimport[39m([32m"@/utils/supabase/client"[39m)[33m;[39m[0m
+[0m [90m   |[39m                                    [31m[1m^[22m[39m[0m
+[0m [90m 5 |[39m     [36mconst[39m supabase [33m=[39m createClient()[33m;[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m     [36mconst[39m { data[33m,[39m error } [33m=[39m [36mawait[39m supabase[0m
+
+https://nextjs.org/docs/messages/module-not-found

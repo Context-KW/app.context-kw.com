@@ -1,0 +1,36 @@
+
+> context-portal@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1494ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1990ms (518 modules)
+ GET / 200 in 2095ms
+ ○ Compiling /services ...
+ ✓ Compiled /services in 2.2s (685 modules)
+ GET /services 200 in 2273ms
+ ✓ Compiled /calculator in 126ms (677 modules)
+ GET /calculator 200 in 206ms
+ ✓ Compiled /orders in 110ms (684 modules)
+ GET /orders 200 in 194ms
+ ✓ Compiled /contact in 118ms (690 modules)
+ GET /contact 200 in 147ms
+ GET / 200 in 64ms
+ ✓ Compiled /profile in 140ms (692 modules)
+ GET / 200 in 83ms
+ ✓ Compiled /_not-found in 269ms (681 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 347ms
+ ✓ Compiled /calculator in 122ms (342 modules)
+ ✓ Compiled /orders in 75ms (344 modules)
+   Reload env: .env.local
+ ✓ Compiled in 270ms (692 modules)
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 629ms (905 modules)
+ GET /services 500 in 10ms
+ ✓ Compiled in 106ms (905 modules)
+ GET /services 500 in 18ms
