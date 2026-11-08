@@ -14,7 +14,7 @@ import {
   isConsultationSelected,
   quoteSelection,
 } from "@/app/utils/bookingSelection";
-import type { BookableServiceId, ModalSelection } from "@/app/utils/bookingSelection";
+import type { ModalSelection, RequestableServiceId } from "@/app/utils/bookingSelection";
 import { formatPrice, pickText } from "@/app/utils/format";
 import { submitStatusText } from "@/app/utils/submitStatus";
 import type { SubmitState } from "@/app/utils/submitStatus";
@@ -23,7 +23,7 @@ import type { CustomerDetails } from "@/app/utils/supabase/submissions";
 import { useTx } from "@/app/utils/useTx";
 
 interface BookingRequestProps {
-  serviceId: BookableServiceId;
+  serviceId: RequestableServiceId;
   /** Choices made in the modal rows. Saved to the booking and used for the total. */
   selection: ModalSelection;
 }

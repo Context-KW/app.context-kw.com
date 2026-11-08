@@ -54,7 +54,6 @@ export const universityAdvising: ServiceSection[] = [
 ];
 
 export const corporate: ServiceSection[] = [
-  // Training focus has no published rate in config.js, so it is reference only.
   section(
     "options",
     text("Training focus", "مجال التدريب"),
@@ -64,8 +63,7 @@ export const corporate: ServiceSection[] = [
         fromLabel(option),
         text(option.descriptionEn, option.descriptionAr)
       )
-    ),
-    { readOnly: true }
+    )
   ),
   section(
     "tiers",

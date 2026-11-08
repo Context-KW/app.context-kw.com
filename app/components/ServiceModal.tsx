@@ -13,7 +13,7 @@ import {
   CONSULTATION_LOCKED_GROUPS,
   defaultSelection,
   getSelectionGroups,
-  isBookableService,
+  isRequestableService,
   isConsultationSelected,
   isGroupVisible,
   quoteSelection,
@@ -33,15 +33,15 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
   const { language, tx } = useTx();
   const titleId = useId();
   const dialogRef = useModalBehavior(onClose);
-  const bookable = isBookableService(service.id);
+  const requestable = isRequestableService(service.id);
   // Every service gets selectable groups. Their choices drive the live price.
   const groups = getSelectionGroups(service);
   const [selection, setSelection] = useState<ModalSelection>(() =>
     defaultSelection(groups)
   );
 
-  // Non-bookable services show their estimate here. Bookable ones show it in BookingRequest.
-  const quote = bookable ? null : quoteSelection(service.id, selection);
+  // Services without a request form show their estimate here. Others show it in BookingRequest.
+  const quote = requestable ? null : quoteSelection(service.id, selection);
 
   // Choosing the free consultation pins delivery to in-person and locks the other rows.
   const handleSelect = (groupId: string, value: string) =>
@@ -106,9 +106,9 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
 
         {service.id === "printShop" && <BulkDiscountNotice />}
 
-        {!bookable && <SelectionQuote quote={quote} />}
+        {!requestable && <SelectionQuote quote={quote} />}
 
-        {bookable && isBookableService(service.id) && (
+        {isRequestableService(service.id) && (
           <BookingRequest serviceId={service.id} selection={selection} />
         )}
         {service.id === "printShop" && <PrintOrderRequest selection={selection} />}

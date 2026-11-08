@@ -25,6 +25,23 @@ export function isBookableService(serviceId: ServiceId): serviceId is BookableSe
 /** Group id for the service's option list (tutoring focus, advising service type). */
 export const TYPE_GROUP_ID = "type";
 
+/** Services that show the "Request a session" form. Printing uses its own order form. */
+export type RequestableServiceId = Exclude<ServiceId, "printShop">;
+
+export function isRequestableService(serviceId: ServiceId): serviceId is RequestableServiceId {
+  return serviceId !== "printShop";
+}
+
+/** Option group whose chosen value is saved as `tier_type` for each requestable service. */
+const TIER_GROUP_BY_SERVICE: Record<RequestableServiceId, string> = {
+  tutoring: TYPE_GROUP_ID,
+  universityAdvising: TYPE_GROUP_ID,
+  accentCoaching: "focus",
+  translation: "rates",
+  corporate: "options",
+};
+
+
 /**
  * The chosen value for each group id, e.g. { type: "ielts", packages: "five" }.
  * Checkbox groups store their chosen ids comma-separated, and number inputs store the typed text.
@@ -187,24 +204,25 @@ export interface BookingFields {
   isConsultation: boolean;
   tierType: string;
   deliveryMode: string | null;
-  sessionDurationHours: number;
+  /** Null for services that have no session length. */
+  sessionDurationHours: number | null;
   packageId: string | null;
 }
 
 /** Maps the modal's choices onto the columns of the `bookings` row. */
 export function bookingFields(
-  serviceId: BookableServiceId,
+  serviceId: RequestableServiceId,
   selection: ModalSelection
 ): BookingFields {
   const isTutoring = serviceId === "tutoring";
-  // Tutoring stores its package. Advising stores the rate row the customer clicked.
+  // Tutoring stores its package. The other services store the rate row the customer clicked.
   const packageId = (isTutoring ? selection.packages : selection.rates) || null;
 
   return {
     isConsultation: isConsultationSelected(selection),
-    tierType: selection[TYPE_GROUP_ID] ?? "",
+    tierType: selection[TIER_GROUP_BY_SERVICE[serviceId]] ?? "",
     deliveryMode: isTutoring && selection.delivery ? selection.delivery : null,
-    sessionDurationHours: Number(selection.durations),
+    sessionDurationHours: selection.durations ? Number(selection.durations) : null,
     packageId,
   };
 }

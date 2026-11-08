@@ -107,8 +107,7 @@ export const accentCoaching: ServiceSection[] = [
   section(
     "focus",
     text("Focus areas", "مجالات التركيز"),
-    config.accentCoaching.focusAreas.map((area) => item(area.id, fromLabel(area))),
-    { readOnly: true }
+    config.accentCoaching.focusAreas.map((area) => item(area.id, fromLabel(area)))
   ),
   section(
     "durations",

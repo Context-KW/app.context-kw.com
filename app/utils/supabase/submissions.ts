@@ -13,10 +13,11 @@ export type SubmitFailure = "not_configured" | "invalid_file" | "failed";
 export type SubmitResult = { ok: true } | { ok: false; reason: SubmitFailure };
 
 export interface BookingPayload {
-  serviceId: "tutoring" | "universityAdvising";
+  serviceId: "tutoring" | "universityAdvising" | "accentCoaching" | "translation" | "corporate";
   tierType: string;
   deliveryMode: string | null;
-  sessionDurationHours: number;
+  /** Null for services without a session length. */
+  sessionDurationHours: number | null;
   packageId: string | null;
   /** True for the free 15-minute consultation. */
   isConsultation: boolean;
