@@ -1,7 +1,8 @@
 import { config } from "@/config";
 import { effectiveTutoringRate } from "@/app/utils/pricing/tutoring";
 import { SERVICE_SECTIONS } from "@/app/utils/sections";
-import type { ServiceDefinition, ServicePrice } from "@/app/utils/serviceTypes";
+import type { ServiceDefinition } from "@/app/utils/serviceTypes";
+import { COMMUNICATIVE_ARABIC_OPTIONS } from "@/app/utils/pricing/communicativeArabic";
 
 const lowest = (...values: number[]): number => Math.min(...values);
 
@@ -10,22 +11,8 @@ const accentOptionRates: Record<string, number> = {
   accentReduction: config.accentCoaching.rates.accentCoaching,
   interviewPrep: config.accentCoaching.rates.interviewPrep,
 };
-const translationOptionRates: Record<string, ServicePrice> = {
-  translation: {
-    amount: lowest(
-      config.translation.rates.englishToArabic,
-      config.translation.rates.arabicToEnglish
-    ),
-    unit: "word",
-  },
-  proofreading: { amount: config.translation.rates.proofreading, unit: "word" },
-  researchSupport: {
-    amount: config.translation.rates.researchSupport,
-    unit: "hour",
-  },
-};
 
-/** Services 1-3: tutoring, accent coaching, translation. */
+/** Services 1-3: tutoring, accent coaching, communicative Arabic coaching. */
 export const learningServices: ServiceDefinition[] = [
   {
     id: "tutoring",
@@ -76,25 +63,28 @@ export const learningServices: ServiceDefinition[] = [
     },
   },
   {
-    id: "translation",
-    image: "/images/services/translation.png",
-    titleEn: config.translation.titleEn,
-    titleAr: config.translation.titleAr,
-    descriptionEn: config.translation.descriptionEn,
-    descriptionAr: config.translation.descriptionAr,
-    options: config.translation.options.map((option) => ({
-      ...option,
-      price: translationOptionRates[option.id],
+    id: "communicativeArabic",
+    image: "/images/services/communicative-arabic.jpg",
+    titleEn: config.communicativeArabic.titleEn,
+    titleAr: config.communicativeArabic.titleAr,
+    descriptionEn: config.communicativeArabic.descriptionEn,
+    descriptionAr: config.communicativeArabic.descriptionAr,
+    options: COMMUNICATIVE_ARABIC_OPTIONS.map((option) => ({
+      id: option.id,
+      labelEn: option.labelEn,
+      labelAr: option.labelAr,
+      descriptionEn: option.subcategoryLabelEn,
+      descriptionAr: option.subcategoryLabelAr,
+      price: { amount: option.launchRate },
+      originalPrice: { amount: option.originalRate },
     })),
-    sections: SERVICE_SECTIONS.translation,
-    // researchSupport is hourly, so only the per-word rates are compared here.
+    sections: SERVICE_SECTIONS.communicativeArabic,
+    // Launch prices are flat per package, so no unit is shown.
     startingPrice: {
-      amount: lowest(
-        config.translation.rates.englishToArabic,
-        config.translation.rates.arabicToEnglish,
-        config.translation.rates.proofreading
-      ),
-      unit: "word",
+      amount: lowest(...COMMUNICATIVE_ARABIC_OPTIONS.map((option) => option.launchRate)),
+    },
+    startingOriginalPrice: {
+      amount: lowest(...COMMUNICATIVE_ARABIC_OPTIONS.map((option) => option.originalRate)),
     },
   },
 ];

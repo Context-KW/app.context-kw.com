@@ -13,7 +13,7 @@ export type SubmitFailure = "not_configured" | "invalid_file" | "failed";
 export type SubmitResult = { ok: true } | { ok: false; reason: SubmitFailure };
 
 export interface BookingPayload {
-  serviceId: "tutoring" | "universityAdvising" | "accentCoaching" | "translation" | "corporate";
+  serviceId: "tutoring" | "universityAdvising" | "accentCoaching" | "communicativeArabic" | "corporate";
   tierType: string;
   deliveryMode: string | null;
   /** Null for services without a session length. */

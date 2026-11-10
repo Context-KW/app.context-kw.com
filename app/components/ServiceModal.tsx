@@ -47,14 +47,16 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
   const handleSelect = (groupId: string, value: string) =>
     setSelection((current) => {
       const next = { ...current, [groupId]: value };
-      if (groupId === "consultation" && value === "consultation") {
+      // Tutoring pins delivery to in-person. Communicative Arabic keeps Online and In-Person open.
+      if (groupId === "consultation" && value === "consultation" && service.id === "tutoring") {
         next.delivery = CONSULTATION_DELIVERY_ID;
       }
       return next;
     });
-  const lockedGroupIds = isConsultationSelected(selection)
-    ? CONSULTATION_LOCKED_GROUPS
-    : [];
+  const lockedGroupIds =
+    isConsultationSelected(selection) && service.id === "tutoring"
+      ? CONSULTATION_LOCKED_GROUPS
+      : [];
   // A full advising package is a flat bundle, so session lengths do not apply to it.
   const isFullAdvisingPackage =
     service.id === "universityAdvising" && selection.rates === "fullPackage";

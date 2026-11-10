@@ -13,8 +13,8 @@ export const config = {
   company: {
     name: "Context",
     nameArabic: "كونتكست",
-    tagline: "English Tutoring, Translation & Business Solutions",
-    taglineArabic: "تدريس الإنجليزية والترجمة وحلول الأعمال",
+    tagline: "English Tutoring, Arabic Communication Coaching & Business Solutions",
+    taglineArabic: "تدريس الإنجليزية والتوجيه والتواصل اللغوي العربي وحلول الأعمال",
   },
 
   // ============================================
@@ -153,55 +153,69 @@ export const config = {
   },
 
   // ============================================
-  // SERVICE 3: TRANSLATION & PROOFREADING
+  // SERVICE 3: COMMUNICATIVE ARABIC COACHING
   // ============================================
-  translation: {
-    titleEn: "Professional Translation & Academic Proofreading",
-    titleAr: "الترجمة الاحترافية والتدقيق اللغوي",
-    descriptionEn: "High-quality translation and linguistic consultation services",
-    descriptionAr: "خدمات ترجمة عالية الجودة واستشارات لغوية",
+  communicativeArabic: {
+    titleEn: "Communicative Arabic Coaching",
+    titleAr: "التوجيه والتواصل اللغوي العربي",
+    descriptionEn:
+      "Professional linguistic assessments, conversational Gulf Arabic consultations, and applied literacy coaching for corporate and academic professionals.",
+    descriptionAr:
+      "تقييمات لغوية احترافية، واستشارات في اللهجة الخليجية للتواصل، وتدريب تطبيقي على القراءة والكتابة للمهنيين والأكاديميين.",
 
-    // Service options
-    options: [
-      {
-        id: "translation",
-        labelEn: "Document Translation (English ⇄ Arabic)",
-        labelAr: "الترجمة الاحترافية",
-        descriptionEn: "Professional high-quality translation for documents and records (non-sworn consultation)",
-        descriptionAr: "ترجمة عالية الجودة للمستندات والوثائق بين اللغتين (العربية ⇄ الإنجليزية) بصيغة استشارات لغوية (غير محلفة)",
-      },
-      {
-        id: "proofreading",
-        labelEn: "Academic Proofreading & Essay Polishing",
-        labelAr: "التدقيق اللغوي والأكاديمي",
-        descriptionEn: "Review and refinement of research papers, essays, and academic reports",
-        descriptionAr: "مراجعة وصقل الأبحاث والمقالات والتقارير الجامعية",
-      },
-      {
-        id: "researchSupport",
-        labelEn: "Research Support & Linguistic Guidance",
-        labelAr: "دعم الأبحاث والمشاريع",
-        descriptionEn: "Comprehensive linguistic guidance and support for academic projects",
-        descriptionAr: "تقديم التوجيه والإرشاد اللغوي المتكامل للمشاريع الأكاديمية",
-      },
-    ],
-
-    // Pricing per word in KWD
-    rates: {
-      englishToArabic: 0.5,
-      arabicToEnglish: 0.5,
-      proofreading: 0.15,
-      researchSupport: 25, // per hour
+    // Launch promotion: each item keeps its original price, and the launch price is calculated from it.
+    launchPromo: {
+      discountPercent: 50,
     },
 
-    // Document types
-    documentTypes: [
-      { id: "academic", labelEn: "Academic Papers", labelAr: "الأوراق الأكاديمية" },
-      { id: "corporate", labelEn: "Corporate Documents", labelAr: "المستندات الشركات" },
-      { id: "legal", labelEn: "Legal Documents", labelAr: "المستندات القانونية" },
-      { id: "technical", labelEn: "Technical Content", labelAr: "المحتوى التقني" },
-      { id: "creative", labelEn: "Creative Writing", labelAr: "الكتابة الإبداعية" },
-      { id: "presentations", labelEn: "Presentations", labelAr: "العروض التقديمية" },
+    // Delivery modes (same ids as English Tutoring, so the free consultation can pin "inPerson").
+    deliveryModes: [
+      { id: "online", labelEn: "Online", labelAr: "أونلاين" },
+      { id: "inPerson", labelEn: "In-Person at Center", labelAr: "حضوري في المركز" },
+    ],
+
+    // Session lengths in hours: 60-minute milestones, with 30-minute midpoints (same as English Tutoring).
+    sessionDurations: [1, 1.5, 2],
+
+    subcategories: [
+      {
+        id: "gulfArabic",
+        labelEn: "Conversational Gulf Arabic for Professionals",
+        labelAr: "لهجة التواصل الخليجية للمهنيين",
+        items: [
+          {
+            id: "gulfDiagnostic",
+            labelEn: "Single Session / Assessment",
+            labelAr: "جلسة فردية / تقييم",
+            originalRate: 25, // KWD
+          },
+          {
+            id: "gulfPackage",
+            labelEn: "Multi-Session Packages",
+            labelAr: "باقات متعددة الجلسات",
+            originalRate: 85, // KWD
+          },
+        ],
+      },
+      {
+        id: "modernStandardArabic",
+        labelEn: "Applied Modern Standard Arabic",
+        labelAr: "اللغة العربية الفصحى التطبيقية",
+        items: [
+          {
+            id: "literacyConsultation",
+            labelEn: "Single Session / Assessment",
+            labelAr: "جلسة فردية / تقييم",
+            originalRate: 30, // KWD
+          },
+          {
+            id: "literacyPackage",
+            labelEn: "Multi-Session Packages",
+            labelAr: "باقات متعددة الجلسات",
+            originalRate: 150, // KWD
+          },
+        ],
+      },
     ],
   },
 
@@ -278,11 +292,11 @@ export const config = {
         descriptionAr: "تدريب تنفيذي متخصص على كتابة المراسلات الإلكترونية ومذكرات العمل والتقارير بالإنجليزية",
       },
       {
-        id: "financialTranslation",
-        labelEn: "Financial & Commercial Translation",
-        labelAr: "الترجمة المالية والتجارية",
-        descriptionEn: "Professional translation for financial and commercial documents",
-        descriptionAr: "ترجمة احترافية للمستندات المالية والتجارية",
+        id: "financialReportReview",
+        labelEn: "Financial Report Review & Business Layouts",
+        labelAr: "مراجعة وتنسيق التقارير المالية للمؤسسات",
+        descriptionEn: "Professional review and layout formatting of financial reports and business documents",
+        descriptionAr: "مراجعة احترافية وتنسيق للتقارير المالية والمستندات التجارية للمؤسسات",
       },
       {
         id: "executivePitch",
@@ -386,33 +400,6 @@ export const config = {
       duplexPrinting: true,
     },
   },
-
-  // ============================================
-  // LINGUISTICS & EDITORIAL CONSULTATIONS
-  // ============================================
-  linguisticConsultation: {
-    titleEn: "Linguistics & Editorial Consultations",
-    titleAr: "الاستشارات اللغوية والتحريرية",
-    descriptionEn: "Structural clarity and cultural appropriateness analysis",
-    descriptionAr: "تحليل الوضوح الهيكلي والملاءمة الثقافية",
-    
-    introEn: "We analyze structural clarity, localization nuances, and cultural appropriateness for the Kuwaiti market.",
-    introAr: "نحلل الوضوح الهيكلي والفروقات المحلية والملاءمة الثقافية للسوق الكويتي.",
-
-    // Project types
-    projectTypes: [
-      { id: "academic", labelEn: "Academic / Thesis Abstract", labelAr: "أكاديمي / ملخص الرسالة" },
-      { id: "corporate", labelEn: "Corporate Marketing Copy / Slogans", labelAr: "نصوص تسويقية شركات / شعارات" },
-      { id: "legal", labelEn: "Legal / Contract Tone Check", labelAr: "قانوني / فحص نبرة العقد" },
-      { id: "manuscript", labelEn: "General Manuscript Proofreading", labelAr: "تدقيق المخطوطات العام" },
-    ],
-
-    rates: {
-      consultation: 30, // per hour
-      proofreading: 0.15, // per word
-    },
-  },
-
   // ============================================
   // CURRENCY & LOCALIZATION
   // ============================================

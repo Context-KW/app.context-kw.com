@@ -6,8 +6,7 @@ import { quoteCorporate } from "@/app/utils/pricing/corporate";
 import type { QuoteResult } from "@/app/utils/pricing/core";
 import { quotePrint } from "@/app/utils/pricing/print";
 import type { ProtectorMode } from "@/app/utils/pricing/print";
-import { quoteTranslation } from "@/app/utils/pricing/translation";
-import type { TranslationKind } from "@/app/utils/pricing/translation";
+import { quoteCommunicativeArabic } from "@/app/utils/pricing/communicativeArabic";
 import { quoteTutoring } from "@/app/utils/pricing/tutoring";
 import type {
   ServiceDefinition,
@@ -37,7 +36,7 @@ const TIER_GROUP_BY_SERVICE: Record<RequestableServiceId, string> = {
   tutoring: TYPE_GROUP_ID,
   universityAdvising: TYPE_GROUP_ID,
   accentCoaching: "focus",
-  translation: "rates",
+  communicativeArabic: "rates",
   corporate: "options",
 };
 
@@ -130,7 +129,8 @@ const ADVISING_RATE_INPUTS: Record<string, Omit<AdvisingInput, "duration">> = {
 /** Groups locked while the free consultation is chosen. The delivery group is pinned to in-person. */
 export const CONSULTATION_LOCKED_GROUPS = ["packages", "delivery", "durations"];
 /** Groups hidden entirely while the free consultation is chosen (session length and packages). */
-export const CONSULTATION_HIDDEN_GROUPS = ["packages", "durations"];
+// "rates" is the Communicative Arabic package group (tutoring has no such group).
+export const CONSULTATION_HIDDEN_GROUPS = ["packages", "durations", "rates"];
 export const CONSULTATION_DELIVERY_ID = "inPerson";
 
 /** True when the tutoring consultation row is chosen. */
@@ -172,12 +172,8 @@ export function quoteSelection(
         duration: Number(selection.durations),
         sessions: Number(selection.sessions),
       });
-    case "translation":
-      return quoteTranslation({
-        kind: (selection.rates ?? "") as TranslationKind,
-        quantity: Number(selection.quantity),
-        documentTypeId: selection.documents || undefined,
-      });
+    case "communicativeArabic":
+      return quoteCommunicativeArabic(selection.rates ?? "", isConsultationSelected(selection));
     case "corporate":
       return quoteCorporate({
         teamSize: Number(selection.teamSize),
@@ -221,7 +217,7 @@ export function bookingFields(
   return {
     isConsultation: isConsultationSelected(selection),
     tierType: selection[TIER_GROUP_BY_SERVICE[serviceId]] ?? "",
-    deliveryMode: isTutoring && selection.delivery ? selection.delivery : null,
+    deliveryMode: selection.delivery ? selection.delivery : null,
     sessionDurationHours: selection.durations ? Number(selection.durations) : null,
     packageId,
   };

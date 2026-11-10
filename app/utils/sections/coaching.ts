@@ -9,10 +9,7 @@ import {
   effectiveTutoringRate,
   TUTORING_PROMO_FOCUS,
 } from "@/app/utils/pricing/tutoring";
-import {
-  TRANSLATION_KINDS,
-  TRANSLATION_KIND_ORDER,
-} from "@/app/utils/pricing/translation";
+import { COMMUNICATIVE_ARABIC_OPTIONS } from "@/app/utils/pricing/communicativeArabic";
 import {
   durationItems,
   fromLabel,
@@ -122,29 +119,36 @@ export const accentCoaching: ServiceSection[] = [
   }),
 ];
 
-export const translation: ServiceSection[] = [
+export const communicativeArabic: ServiceSection[] = [
+  section(
+    "consultation",
+    text("Session type", "نوع الجلسة"),
+    [
+      item("session", text("Standard session", "جلسة عادية"), text("Billed by the package above", "تُحسب حسب الباقة أعلاه")),
+      item(
+        "consultation",
+        text("Free 15-Minute Consultation", "استشارة مجانية مدتها 15 دقيقة"),
+        text("Introductory call. Choose a date from tomorrow onward.", "مكالمة تعريفية. اختر تاريخاً ابتداءً من الغد."),
+        { amount: CONSULTATION_PRICE }
+      ),
+    ]
+  ),
   section(
     "rates",
-    text("Rates", "الأسعار"),
-    TRANSLATION_KIND_ORDER.map((kind) => {
-      const info = TRANSLATION_KINDS[kind];
-      return item(kind, fromLabel(info), undefined, {
-        amount: info.rate,
-        unit: info.unit,
-      });
-    })
+    text("Packages & launch prices", "الباقات وأسعار الإطلاق"),
+    COMMUNICATIVE_ARABIC_OPTIONS.map((option) =>
+      item(
+        option.id,
+        text(option.labelEn, option.labelAr),
+        text(option.subcategoryLabelEn, option.subcategoryLabelAr),
+        { amount: option.launchRate },
+        { amount: option.originalRate }
+      )
+    )
   ),
   section(
-    "documents",
-    text("Document types", "أنواع المستندات"),
-    config.translation.documentTypes.map((type) => item(type.id, fromLabel(type)))
-  ),
-  quantitySection(
-    "quantity",
-    text(
-      "Quantity (words, or hours for hourly services)",
-      "الكمية (كلمات، أو ساعات للخدمات بالساعة)"
-    ),
-    { min: 0.5, max: 1000000, step: 0.5, defaultValue: 1 }
+    "delivery",
+    text("Delivery modes", "طرق التقديم"),
+    config.communicativeArabic.deliveryModes.map((mode) => item(mode.id, fromLabel(mode)))
   ),
 ];

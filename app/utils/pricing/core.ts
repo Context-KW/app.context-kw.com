@@ -53,8 +53,8 @@ const MONEY_FACTOR = 10 ** config.currency.decimalPlaces;
 export const PROMO_DISCOUNT_PERCENT = config.tutoring.promo.discountPercent;
 /** Printing has its own, smaller discount (from config.js). */
 export const PRINT_PROMO_PERCENT = config.printShop.promoDiscountPercent;
-/** Tutoring already bills its promo rate, so no further promo is applied to it. */
-export const PROMO_EXCLUDED_SERVICES: ServiceId[] = ["tutoring"];
+/** Tutoring and Communicative Arabic already bill launch prices, so no further promo is applied. */
+export const PROMO_EXCLUDED_SERVICES: ServiceId[] = ["tutoring", "communicativeArabic"];
 
 export function promoApplies(serviceId: ServiceId): boolean {
   return !PROMO_EXCLUDED_SERVICES.includes(serviceId);

@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/app/context/LanguageContext";
 export const metadata: Metadata = {
   metadataBase: new URL("https://context-kw.com"),
   title: "Context",
-  description: "Professional English tutoring, translation, and corporate solutions in Kuwait",
+  description: "Professional English tutoring, Arabic communication coaching, and corporate solutions in Kuwait",
   icons: { icon: "/logo.png" },
 };
 

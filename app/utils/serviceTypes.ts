@@ -3,7 +3,7 @@ import type { PriceUnit } from "@/app/utils/format";
 export type ServiceId =
   | "tutoring"
   | "accentCoaching"
-  | "translation"
+  | "communicativeArabic"
   | "universityAdvising"
   | "corporate"
   | "printShop";
