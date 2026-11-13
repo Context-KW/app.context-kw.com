@@ -7,6 +7,7 @@ import type { QuoteResult } from "@/app/utils/pricing/core";
 import { quotePrint } from "@/app/utils/pricing/print";
 import type { ProtectorMode } from "@/app/utils/pricing/print";
 import { quoteCommunicativeArabic } from "@/app/utils/pricing/communicativeArabic";
+import { quoteResumeWriting, RESUME_WRITING_TIERS } from "@/app/utils/pricing/resumeWriting";
 import { quoteTutoring } from "@/app/utils/pricing/tutoring";
 import type {
   ServiceDefinition,
@@ -37,6 +38,7 @@ const TIER_GROUP_BY_SERVICE: Record<RequestableServiceId, string> = {
   universityAdvising: TYPE_GROUP_ID,
   accentCoaching: "focus",
   communicativeArabic: "rates",
+  resumeWriting: "rates",
   corporate: "options",
 };
 
@@ -130,8 +132,18 @@ const ADVISING_RATE_INPUTS: Record<string, Omit<AdvisingInput, "duration">> = {
 export const CONSULTATION_LOCKED_GROUPS = ["packages", "delivery", "durations"];
 /** Groups hidden entirely while the free consultation is chosen (session length and packages). */
 // "rates" is the Communicative Arabic package group (tutoring has no such group).
-export const CONSULTATION_HIDDEN_GROUPS = ["packages", "durations", "rates"];
+export const CONSULTATION_HIDDEN_GROUPS = ["packages", "durations", "rates", "sessions", "addons"];
 export const CONSULTATION_DELIVERY_ID = "inPerson";
+
+/** Resume service levels offered inside the Accent Coaching card. */
+export const RESUME_TIER_IDS: string[] = RESUME_WRITING_TIERS.map((tier) => tier.id);
+/** Groups hidden in the Accent Coaching card while a resume level is chosen. */
+export const RESUME_HIDDEN_GROUPS = ["durations", "sessions", "consultation", "focus"];
+
+/** True when a resume service level (not an accent rate) is chosen in the Accent Coaching modal. */
+export function isResumeSelected(selection: ModalSelection): boolean {
+  return RESUME_TIER_IDS.includes(selection.rates ?? "");
+}
 
 /** True when the tutoring consultation row is chosen. */
 export function isConsultationSelected(selection: ModalSelection): boolean {
@@ -167,13 +179,26 @@ export function quoteSelection(
       });
     }
     case "accentCoaching":
+      if (isResumeSelected(selection)) {
+        return quoteResumeWriting({
+          tierId: selection.rates ?? "",
+          addOnIds: splitIds(selection.addons),
+        });
+      }
       return quoteAccent({
         rateKey: (selection.rates ?? "") as AccentRateKey,
         duration: Number(selection.durations),
         sessions: Number(selection.sessions),
+        isConsultation: isConsultationSelected(selection),
       });
     case "communicativeArabic":
       return quoteCommunicativeArabic(selection.rates ?? "", isConsultationSelected(selection));
+    case "resumeWriting":
+      return quoteResumeWriting({
+        tierId: selection.rates ?? "",
+        addOnIds: splitIds(selection.addons),
+        isConsultation: isConsultationSelected(selection),
+      });
     case "corporate":
       return quoteCorporate({
         teamSize: Number(selection.teamSize),
@@ -214,11 +239,14 @@ export function bookingFields(
   // Tutoring stores its package. The other services store the rate row the customer clicked.
   const packageId = (isTutoring ? selection.packages : selection.rates) || null;
 
+  // Resume levels on the Accent card have no session length and no free consultation.
+  const isResume = serviceId === "accentCoaching" && isResumeSelected(selection);
+
   return {
-    isConsultation: isConsultationSelected(selection),
+    isConsultation: !isResume && isConsultationSelected(selection),
     tierType: selection[TIER_GROUP_BY_SERVICE[serviceId]] ?? "",
     deliveryMode: selection.delivery ? selection.delivery : null,
-    sessionDurationHours: selection.durations ? Number(selection.durations) : null,
+    sessionDurationHours: !isResume && selection.durations ? Number(selection.durations) : null,
     packageId,
   };
 }

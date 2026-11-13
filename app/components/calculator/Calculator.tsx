@@ -8,6 +8,7 @@ import { CorporateForm } from "@/app/components/calculator/CorporateForm";
 import { PrintForm } from "@/app/components/calculator/PrintForm";
 import { QuoteSummary } from "@/app/components/calculator/QuoteSummary";
 import { CommunicativeArabicForm } from "@/app/components/calculator/CommunicativeArabicForm";
+import { ResumeWritingForm } from "@/app/components/calculator/ResumeWritingForm";
 import { TutoringForm } from "@/app/components/calculator/TutoringForm";
 import { LanguageToggle } from "@/app/components/LanguageToggle";
 import { Logo } from "@/app/components/Logo";
@@ -26,6 +27,7 @@ const FORMS: Record<
   tutoring: TutoringForm,
   accentCoaching: AccentForm,
   communicativeArabic: CommunicativeArabicForm,
+  resumeWriting: ResumeWritingForm,
   universityAdvising: AdvisingForm,
   corporate: CorporateForm,
   printShop: PrintForm,

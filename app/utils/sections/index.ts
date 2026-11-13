@@ -2,6 +2,7 @@ import type { ServiceId, ServiceSection } from "@/app/utils/serviceTypes";
 import {
   accentCoaching,
   communicativeArabic,
+  resumeWriting,
   tutoring,
 } from "@/app/utils/sections/coaching";
 import {
@@ -15,6 +16,7 @@ export const SERVICE_SECTIONS: Record<ServiceId, ServiceSection[]> = {
   tutoring,
   accentCoaching,
   communicativeArabic,
+  resumeWriting,
   universityAdvising,
   corporate,
   printShop,

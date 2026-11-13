@@ -1,10 +1,10 @@
 import { config } from "@/config";
-import { formatDuration, pickText } from "@/app/utils/format";
+import type { Language } from "@/app/context/LanguageContext";
+import { formatDuration, formatPrice, formatUnit, pickText } from "@/app/utils/format";
 import {
   bi,
   fail,
   makeLine,
-  perUnit,
   roundMoney,
   row,
 } from "@/app/utils/pricing/core";
@@ -70,9 +70,16 @@ export function quoteTutoring(input: TutoringInput): QuoteResult {
     return fail("Select a session length.", "اختر مدة الجلسة.");
   }
 
-  const hours = input.duration * pkg.sessions;
-  const subtotal = roundMoney(rate * hours);
+  // 30-minute sessions bill at the configured share of the hourly rate, per 30 minutes.
+  // Longer sessions bill per hour. The rate is already the launch rate, so no promo is re-applied.
+  const isShort = input.duration < 1;
+  const factor = isShort ? t.shortSessionRatio : 1;
+  const unitPrice = roundMoney(rate * factor);
+  const quantity = isShort ? pkg.sessions : input.duration * pkg.sessions;
+  const subtotal = roundMoney(unitPrice * quantity);
   const discount = roundMoney((subtotal * pkg.discount) / 100);
+  const unitLabel = (l: Language) =>
+    isShort ? pickText(l, "30 minutes", "30 دقيقة") : formatUnit("hour", l);
 
   const rows: QuoteRow[] = [
     row(
@@ -81,14 +88,14 @@ export function quoteTutoring(input: TutoringInput): QuoteResult {
           `${pickText(l, focus.labelEn, focus.labelAr)}: ${pkg.sessions} × ${formatDuration(
             input.duration,
             l
-          )} @ ${perUnit(rate, "hour", l)}`
+          )} @ ${formatPrice(unitPrice, l)}/${unitLabel(l)}`
       ),
       subtotal
     ),
   ];
   // Standard (pre-promo) subtotal for the struck-through original price.
   const standardRate = tutoringRates[input.focusId];
-  rows[0].originalAmount = roundMoney(standardRate * hours);
+  rows[0].originalAmount = roundMoney(standardRate * factor * quantity);
   if (discount > 0) {
     rows.push(
       row(

@@ -1,4 +1,5 @@
 import { config } from "@/config";
+import { ACCENT_RATE_KEYS, accentLaunchRate } from "@/app/utils/pricing/accent";
 import { effectiveTutoringRate } from "@/app/utils/pricing/tutoring";
 import { SERVICE_SECTIONS } from "@/app/utils/sections";
 import type { ServiceDefinition } from "@/app/utils/serviceTypes";
@@ -58,6 +59,10 @@ export const learningServices: ServiceDefinition[] = [
     })),
     sections: SERVICE_SECTIONS.accentCoaching,
     startingPrice: {
+      amount: lowest(...ACCENT_RATE_KEYS.map((key) => accentLaunchRate(key))),
+      unit: "hour",
+    },
+    startingOriginalPrice: {
       amount: lowest(...Object.values(config.accentCoaching.rates)),
       unit: "hour",
     },

@@ -89,8 +89,9 @@ export const config = {
       { id: "inPerson", labelEn: "In-Person (Kuwait)", labelAr: "حضوري (الكويت)" },
     ],
 
-    // Session durations (in hours)
-    sessionDurations: [1, 1.5, 2],
+    // Session durations (in hours): 30-minute sessions cost shortSessionRatio of the 1-hour rate
+    sessionDurations: [0.5, 1, 1.5, 2],
+    shortSessionRatio: 0.6,
 
     // Package options
     packages: [
@@ -104,23 +105,23 @@ export const config = {
   // SERVICE 2: ACCENT COACHING & INTERVIEW PREP
   // ============================================
   accentCoaching: {
-    titleEn: "Accent Coaching & Interview Prep",
-    titleAr: "تطوير النطق والتحضير للمقابلات الشخصية",
-    descriptionEn: "Professional accent reduction and interview preparation training",
-    descriptionAr: "تدريب احترافي على تقليل الهجاء وتحضير المقابلات الشخصية",
+    titleEn: "Accent Coaching & Career Support",
+    titleAr: "تدريب النطق والدعم المهني",
+    descriptionEn: "Clear spoken English, executive communication, and career readiness coaching.",
+    descriptionAr: "تطوير النطق الإنجليزي ومهارات التواصل التنفيذي والاستعداد للمسار المهني.",
 
     // Service options
     options: [
       {
         id: "accentReduction",
-        labelEn: "Accent Reduction",
+        labelEn: "Accent Coaching",
         labelAr: "تطوير اللهجة الإنجليزية",
         descriptionEn: "Intensive pronunciation training based on linguistic methodology (American accent focus)",
         descriptionAr: "تدريب مكثف على النطق الصحيح وتقليل الهجاء الخاطئ بالاعتماد على أسس علم اللغويات (التركيز على اللهجة الأمريكية)",
       },
       {
         id: "interviewPrep",
-        labelEn: "Job Interview Prep",
+        labelEn: "Job Interview Preparation",
         labelAr: "التحضير للمقابلات",
         descriptionEn: "Targeted preparation for job interviews and public speaking",
         descriptionAr: "تأهيل مستهدف لمقابلات العمل والتحدث أمام الجمهور",
@@ -134,6 +135,12 @@ export const config = {
       },
     ],
 
+    // Delivery modes (same ids as Tutoring and Communicative Arabic)
+    deliveryModes: [
+      { id: "online", labelEn: "Online", labelAr: "أونلاين" },
+      { id: "inPerson", labelEn: "In-Person at Center", labelAr: "حضوري في المركز" },
+    ],
+
     // Focus areas
     focusAreas: [
       { id: "pronunciation", labelEn: "Pronunciation & Accent Reduction", labelAr: "النطق وتقليل الهجاء" },
@@ -145,11 +152,11 @@ export const config = {
     rates: {
       accentCoaching: 16,
       interviewPrep: 17,
-      combined: 18,
     },
 
-    // Session durations (in hours)
-    sessionDurations: [1, 1.5, 2],
+    // Session durations (in hours): 30-minute sessions cost shortSessionRatio of the 1-hour rate
+    sessionDurations: [0.5, 1, 1.5, 2],
+    shortSessionRatio: 0.6,
   },
 
   // ============================================
@@ -175,7 +182,8 @@ export const config = {
     ],
 
     // Session lengths in hours: 60-minute milestones, with 30-minute midpoints (same as English Tutoring).
-    sessionDurations: [1, 1.5, 2],
+    sessionDurations: [0.5, 1, 1.5, 2],
+    shortSessionRatio: 0.6,
 
     subcategories: [
       {
@@ -216,6 +224,41 @@ export const config = {
           },
         ],
       },
+    ],
+  },
+
+  // ============================================
+  // SERVICE: RESUME WRITING & REVIEW
+  // ============================================
+  resumeWriting: {
+    titleEn: "Resume Writing & Review",
+    titleAr: "كتابة السيرة الذاتية ومراجعتها",
+    descriptionEn:
+      "Professional CV structuring, ATS optimization, and career document advisory for students and professionals.",
+    descriptionAr:
+      "تنظيم السيرة الذاتية الاحترافية، وتحسينها لأنظمة الفرز الآلي (ATS)، واستشارات المستندات المهنية للطلاب والمهنيين.",
+
+    // Launch promotion: each item keeps its original price, and the launch price is calculated from it.
+    launchPromo: {
+      discountPercent: 50,
+    },
+
+    // Service levels (one is chosen per request).
+    tiers: [
+      { id: "reviewAudit", labelEn: "Resume Review", labelAr: "مراجعة السيرة الذاتية", originalRate: 15 },
+      { id: "fullWriting", labelEn: "Full Resume Writing", labelAr: "كتابة السيرة الذاتية كاملة", originalRate: 30 },
+    ],
+
+    // Optional add-ons (checkboxes).
+    addOns: [
+      { id: "coverLetter", labelEn: "Tailored Cover Letter", labelAr: "خطاب تقديم مخصص", originalRate: 10 },
+      { id: "linkedInOptimization", labelEn: "LinkedIn Profile Optimization", labelAr: "تحسين ملف LinkedIn", originalRate: 15 },
+    ],
+
+    // Delivery modes (same ids as the other consultation cards).
+    deliveryModes: [
+      { id: "online", labelEn: "Online", labelAr: "أونلاين" },
+      { id: "inPerson", labelEn: "In-Person at Center", labelAr: "حضوري في المركز" },
     ],
   },
 

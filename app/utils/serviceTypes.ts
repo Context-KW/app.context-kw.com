@@ -6,6 +6,7 @@ export type ServiceId =
   | "communicativeArabic"
   | "universityAdvising"
   | "corporate"
+  | "resumeWriting"
   | "printShop";
 
 export interface ServicePrice {

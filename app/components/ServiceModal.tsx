@@ -16,7 +16,9 @@ import {
   isRequestableService,
   isConsultationSelected,
   isGroupVisible,
+  isResumeSelected,
   quoteSelection,
+  RESUME_HIDDEN_GROUPS,
 } from "@/app/utils/bookingSelection";
 import type { ModalSelection } from "@/app/utils/bookingSelection";
 import { pickText } from "@/app/utils/format";
@@ -60,8 +62,12 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
   // A full advising package is a flat bundle, so session lengths do not apply to it.
   const isFullAdvisingPackage =
     service.id === "universityAdvising" && selection.rates === "fullPackage";
+  // A resume level in the Accent Coaching card shows the resume add-ons and hides the session groups.
+  const resumeChosen = service.id === "accentCoaching" && isResumeSelected(selection);
   const visibleGroups = groups.filter((group) => {
     if (!isGroupVisible(group.id, selection)) return false;
+    if (group.id === "addons") return resumeChosen;
+    if (resumeChosen && RESUME_HIDDEN_GROUPS.includes(group.id)) return false;
     if (isConsultationSelected(selection) && CONSULTATION_HIDDEN_GROUPS.includes(group.id)) {
       return false;
     }

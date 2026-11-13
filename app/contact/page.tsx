@@ -13,6 +13,13 @@ const CONTACT_PHONE_DISPLAY = "+965 5503 9794";
 const CONTACT_PHONE_HREF = "+96555039794";
 const WEBSITE_DOMAIN = "www.context-kw.com";
 
+/** Social media profiles, all under the handle @contextq8. */
+const SOCIAL_LINKS = [
+  { label: "Instagram", handle: "contextq8", url: "https://www.instagram.com/contextq8", icon: "📸" },
+  { label: "TikTok", handle: "contextq8", url: "https://www.tiktok.com/@contextq8", icon: "🎵" },
+  { label: "Facebook", handle: "contextq8", url: "https://www.facebook.com/contextq8", icon: "📘" },
+];
+
 /** Official Google Maps link for the business location. */
 const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/shvx5jEVicYhQ1D17";
 
@@ -134,6 +141,20 @@ export default function ContactPage() {
                 {WEBSITE_DOMAIN}
               </a>
             </li>
+            {SOCIAL_LINKS.map((social) => (
+              <li key={social.label}>
+                {social.icon}{" "}
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4"
+                  dir="ltr"
+                >
+                  {social.label}: @{social.handle}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 

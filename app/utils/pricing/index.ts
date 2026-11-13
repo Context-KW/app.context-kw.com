@@ -2,6 +2,7 @@ export * from "@/app/utils/pricing/core";
 export * from "@/app/utils/pricing/tutoring";
 export * from "@/app/utils/pricing/accent";
 export * from "@/app/utils/pricing/communicativeArabic";
+export * from "@/app/utils/pricing/resumeWriting";
 export * from "@/app/utils/pricing/advising";
 export * from "@/app/utils/pricing/corporate";
 export * from "@/app/utils/pricing/print";

@@ -85,7 +85,7 @@ export function ServiceCard({ service, index, onOpen }: ServiceCardProps) {
               )}
             </s>
           )}
-          {service.id === "tutoring" || service.id === "communicativeArabic"
+          {service.id === "tutoring" || service.id === "communicativeArabic" || service.id === "accentCoaching" || service.id === "resumeWriting"
             ? tx("0.000 KWD (Free 15-min trial)", "0.000 د.ك (تجربة مجانية 15 دقيقة)")
             : formatRate(
                 service.startingPrice.amount,
