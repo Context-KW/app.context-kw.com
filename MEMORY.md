@@ -41,7 +41,7 @@
 - Corporate option `financialReportReview` titled "Financial Report Review & Business Layouts" (مراجعة وتنسيق التقارير المالية للمؤسسات).
 - Communicative Arabic: Online / In-Person delivery, free 15-minute consultation, 50% launch promo.
 - Deleted `TranslationForm.tsx` and `pricing/translation.ts`.
-- Contact page: Instagram, TikTok, Facebook links (`@contextq8`).
+- Contact page: redesigned 2026-11-14 (see "Contact & Socials redesign" below). Old emoji and link-only layout removed.
 - Logo: `app/components/Logo.tsx` loads `/Logo%20(New).png`.
 
 ## Current system state
@@ -83,6 +83,19 @@
 - `SERVICE_SECTIONS.resumeWriting` in `app/utils/sections/coaching.ts` is now unused by the catalog. Check before deleting.
 - `/calculator` page still has its separate `ResumeWritingForm.tsx`, which still shows "Resume Review & ATS" wording if any copy remains. Not updated.
 - Corporate rename (`financialReportReview` in `config.js` ~line 336) still pending. Waiting for the new English and Arabic names.
+
+
+## Contact & Socials redesign (2026-11-14, approved by user, kept)
+- `config.js` `contact` block: added `handle: "contextq8"`, `website: "www.context-kw.com"`, and `socials` (LinkedIn `https://www.linkedin.com/company/contextq8`, Instagram `https://instagram.com`, TikTok `https://tiktok.com`, Facebook `https://facebook.com`).
+- `app/contact/page.tsx` rewritten as a client component importing `config` from `@/config`. Emojis removed.
+  - Icons are custom inline SVGs (1.5px stroke). `lucide-react` is NOT installed and was not added.
+  - Unified Handle Spotlight (black card): `@contextq8` badge, EN/AR subtitles, copy button that shows "Copied!" for 2s.
+  - Social pills per platform, plus a dashed "More platforms coming soon" / "المزيد من المنصات قريباً" pill.
+  - Bento contact cards: Phone, Email, Website, Hub. Hub card uses the address and directions from `LOCATION_EN` / `LOCATION_AR`.
+  - Map: Google Maps iframe embed keyed by text query (`GOOGLE_MAPS_EMBED_URL`, no API key), with an "Open in Maps" button to `GOOGLE_MAPS_URL`.
+  - Logical CSS properties (`ps-`, `pe-`, `-end-`) for RTL.
+- Not browser-tested. `npm run build` passed (exit 0, all 9 pages) after the final change.
+- Contact page WhatsApp button keeps the `animate-ping` halo only.
 
 
 ## Commands

@@ -24,6 +24,15 @@ export const config = {
     email: "info@context-kw.com",
     phone: "+965 5503 9794",
     address: "Farwaniya, Habib Al-Munawir Street, between Ibn Al-Wazeer and Al-Ameed Coffee, Shop 16 (Basement).",
+    handle: "contextq8",
+    socials: [
+      { id: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/company/contextq8" },
+      { id: "instagram", label: "Instagram", url: "https://instagram.com" },
+      { id: "tiktok", label: "TikTok", url: "https://tiktok.com" },
+      { id: "facebook", label: "Facebook", url: "https://facebook.com" },
+    ],
+    website: "www.context-kw.com",
+
   },
 
   // ============================================
